@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { amethyst, white, clouds } from './colors';
+import { amethyst, white, concrete } from './colors';
 
 export const formStyles = StyleSheet.create({
     container: {
@@ -18,7 +18,8 @@ export const formStyles = StyleSheet.create({
         height: 44,
         padding: 8,
         borderWidth: 1,
-        borderColor: clouds,
+        borderColor: concrete,
+        borderRadius: 5,
         margin: 50,
     },
     submitButton: {

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
+import {
+    View,
+    Text,
+    KeyboardAvoidingView,
+    TextInput,
+    TouchableOpacity,
+    Keyboard,
+} from 'react-native';
 import { formStyles } from '../utils/styles';
 
 export default class NewDeckForm extends Component {
@@ -14,9 +21,18 @@ export default class NewDeckForm extends Component {
     handleSubmit = () => {
         if (!this.state.newTitle) {
             alert('Deck title cannot be empty!')
+            return
         }
+        Keyboard.dismiss()
 
         // save new deck
+
+
+        // go to deck detail view
+        this.props.navigation.navigate('DeckDetail')
+
+        // clear state
+        this.setState({ newTitle: null })
     }
 
     render() {

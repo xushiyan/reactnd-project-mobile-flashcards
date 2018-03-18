@@ -1,10 +1,11 @@
-import React from 'react';
-import { TabNavigator, StackNagivator } from 'react-navigation';
+import React, { Component } from 'react';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { Constants } from 'expo';
 import DeckList from './components/deck_list';
+import DeckDetail from './components/deck_detail';
 import NewDeckForm from './components/new_deck_form';
-import { wisteria, white } from './utils/colors';
+import { wisteria, white, amethyst } from './utils/colors';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const FlashCardsStatusBar = ({ backgroundColor, ...props }) => {
@@ -54,12 +55,27 @@ const Tabs = TabNavigator({
   }
 )
 
+const MainNavigator = StackNavigator({
+  Home: {
+    screen: Tabs,
+  },
+  DeckDetail: {
+    screen: DeckDetail,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: amethyst,
+      }
+    }
+  }
+})
+
 export default class App extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
         <FlashCardsStatusBar backgroundColor={wisteria} barStyle='light-content' />
-        <Tabs />
+        <MainNavigator />
       </View>
     )
   }
