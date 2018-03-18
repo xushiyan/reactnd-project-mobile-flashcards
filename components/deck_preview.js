@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-export default DeckPreview = ({ name, numCards }) => {
+export default DeckPreview = ({ title, numCards }) => {
     return (
         <View>
-            <Text>{name}</Text>
+            <Text>{title}</Text>
             <Text>{`${numCards} cards`}</Text>
         </View>
     )

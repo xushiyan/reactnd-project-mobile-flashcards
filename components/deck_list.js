@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-export default class DeckList extends React.Component {
+export default class DeckList extends Component {
 
     render() {
         return (
