@@ -1,9 +1,11 @@
 import React from 'react';
 import { TabNavigator, StackNagivator } from 'react-navigation';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { Constants } from 'expo';
 import DeckList from './components/deck_list';
 import NewDeckForm from './components/new_deck_form';
+import { wisteria, white } from './utils/colors';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const FlashCardsStatusBar = ({ backgroundColor, ...props }) => {
   return (
@@ -17,33 +19,48 @@ const Tabs = TabNavigator({
   Decks: {
     screen: DeckList,
     navigationOptions: {
-      tabBarLabel: 'DECKS'
+      tabBarLabel: 'DECKS',
+      tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name='cards' size={30} color={tintColor} />
     }
   },
   NewDeck: {
     screen: NewDeckForm,
     navigationOptions: {
-      tabBarLabel: 'NEW DECK'
+      tabBarLabel: 'NEW DECK',
+      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-add-circle' size={30} color={tintColor} />
     }
   }
-
-})
+}, {
+    navigationOptions: {
+      header: null
+    },
+    tabBarOptions: {
+      activeTintColor: Platform.OS === 'ios' ? wisteria : white,
+      style: {
+        height: 56,
+        backgroundColor: Platform.OS === 'ios' ? white : wisteria,
+        shadowColor: 'rgba(0, 0, 0, 0.24)',
+        shadowOffset: {
+          width: 0,
+          height: 3
+        },
+        shadowRadius: 6,
+        shadowOpacity: 1
+      },
+      indicatorStyle: {
+        backgroundColor: white
+      },
+    }
+  }
+)
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <FlashCardsStatusBar backgroundColor='#000' barStyle='dark-content' />
+      <View style={{ flex: 1 }}>
+        <FlashCardsStatusBar backgroundColor={wisteria} barStyle='light-content' />
+        <Tabs />
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

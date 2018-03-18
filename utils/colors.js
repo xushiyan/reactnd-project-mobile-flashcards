@@ -1,0 +1,5 @@
+export const turquoise = '#1abc9c'
+export const amethyst = '#9b59b6'
+export const white = '#fff'
+export const clouds = '#ecf0f1'
+export const wisteria = '#8e44ad'
