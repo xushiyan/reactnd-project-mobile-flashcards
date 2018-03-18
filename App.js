@@ -1,15 +1,41 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { TabNavigator, StackNagivator } from 'react-navigation';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { Constants } from 'expo';
+import DeckList from './components/deck_list';
+import NewDeckForm from './components/new_deck_form';
+
+const FlashCardsStatusBar = ({ backgroundColor, ...props }) => {
+  return (
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+  )
+}
+
+const Tabs = TabNavigator({
+  Decks: {
+    screen: DeckList,
+    navigationOptions: {
+      tabBarLabel: 'DECKS'
+    }
+  },
+  NewDeck: {
+    screen: NewDeckForm,
+    navigationOptions: {
+      tabBarLabel: 'NEW DECK'
+    }
+  }
+
+})
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <FlashCardsStatusBar backgroundColor='#000' barStyle='dark-content' />
       </View>
-    );
+    )
   }
 }
 
