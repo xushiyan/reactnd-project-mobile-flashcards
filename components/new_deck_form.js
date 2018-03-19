@@ -8,10 +8,18 @@ import {
     Keyboard,
 } from 'react-native';
 import { formStyles } from '../utils/styles';
+import { saveDeckTitle, getDecks, getDeck } from '../utils/helpers';
 
 export default class NewDeckForm extends Component {
     state = {
         newTitle: null
+    }
+
+    componentDidMount() {
+        this.props.navigation.addListener('didBlur', (payload) => {
+            // clear state
+            this.setState({ newTitle: null })
+        })
     }
 
     handleTextChange = (newTitle) => {
@@ -19,20 +27,15 @@ export default class NewDeckForm extends Component {
     }
 
     handleSubmit = () => {
-        if (!this.state.newTitle) {
-            alert('Deck title cannot be empty!')
-            return
-        }
-        Keyboard.dismiss()
-
-        // save new deck
-
-
-        // go to deck detail view
-        this.props.navigation.navigate('DeckDetail')
-
-        // clear state
-        this.setState({ newTitle: null })
+        Promise.resolve(saveDeckTitle(this.state.newTitle)).then(result => {
+            const { success, message } = result
+            if (success) {
+                Keyboard.dismiss()
+                this.props.navigation.navigate('DeckDetail')
+            } else {
+                alert(message)
+            }
+        })
     }
 
     render() {
