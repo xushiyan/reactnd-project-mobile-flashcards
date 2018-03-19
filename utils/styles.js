@@ -35,3 +35,23 @@ export const formStyles = StyleSheet.create({
         color: white
     },
 })
+
+export const deckStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 10,
+        paddingTop: 50,
+        paddingBottom: 50,
+        borderWidth: 0.5,
+        borderColor: amethyst,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    titleText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+    },
+    subtitleText: {
+        fontSize: 18,
+    },
+})

@@ -18,7 +18,7 @@ export const saveDeckTitle = (deckTitle) => {
     }
 
     return getDecks().then(result => {
-        if (deckTitle in result) {
+        if (result && deckTitle in result) {
             return { success: false, message: `Deck ${deckTitle} exists.` }
         }
 
