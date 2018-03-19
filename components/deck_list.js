@@ -19,8 +19,9 @@ export default class DeckList extends PureComponent {
 
     _keyExtractor = (item, index) => item.title
 
-    _onPressItem = (id) => {
-        console.log(id)
+    _onPressItem = (title) => {
+        const { navigation } = this.props
+        navigation.navigate('DeckDetail', { title })
     }
 
     _renderItem = ({ item }) => (

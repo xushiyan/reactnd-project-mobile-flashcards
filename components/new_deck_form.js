@@ -12,26 +12,27 @@ import { saveDeckTitle, getDecks, getDeck } from '../utils/helpers';
 
 export default class NewDeckForm extends Component {
     state = {
-        newTitle: null
+        title: null
     }
 
     componentDidMount() {
         this.props.navigation.addListener('didBlur', (payload) => {
             // clear state
-            this.setState({ newTitle: null })
+            this.setState({ title: null })
         })
     }
 
-    handleTextChange = (newTitle) => {
-        this.setState({ newTitle })
+    handleTextChange = (title) => {
+        this.setState({ title })
     }
 
     handleSubmit = () => {
-        Promise.resolve(saveDeckTitle(this.state.newTitle)).then(result => {
+        const { title } = this.state
+        Promise.resolve(saveDeckTitle(title)).then(result => {
             const { success, message } = result
             if (success) {
                 Keyboard.dismiss()
-                this.props.navigation.navigate('DeckDetail')
+                this.props.navigation.navigate('DeckDetail', { title })
             } else {
                 alert(message)
             }
@@ -39,7 +40,7 @@ export default class NewDeckForm extends Component {
     }
 
     render() {
-        const { newTitle } = this.state
+        const { title } = this.state
         return (
             <KeyboardAvoidingView behavior='padding' style={formStyles.container}>
                 <Text style={formStyles.questionText}>
@@ -47,7 +48,7 @@ export default class NewDeckForm extends Component {
                 </Text>
                 <TextInput
                     style={formStyles.input}
-                    value={newTitle}
+                    value={title}
                     returnKeyType='done'
                     onChangeText={this.handleTextChange} />
                 <TouchableOpacity style={formStyles.submitButton} onPress={this.handleSubmit}>
