@@ -4,12 +4,12 @@ import { deckStyles } from '../utils/styles';
 
 export default class DeckPreview extends PureComponent {
     _onPress = () => {
-        const { title, onPressItem } = this.props
-        onPressItem(title)
+        const { deck, onPressItem } = this.props
+        onPressItem(deck.title)
     }
 
     render() {
-        const { title, numCards } = this.props
+        const { title, numCards } = this.props.deck
         return (
             < TouchableOpacity onPress={this._onPress} >
                 <View style={deckStyles.container}>

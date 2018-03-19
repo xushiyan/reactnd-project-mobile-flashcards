@@ -12,7 +12,9 @@ export default class DeckList extends PureComponent {
     componentDidMount() {
         this.props.navigation.addListener('willFocus', (payload) => {
             getDecks().then(result => {
-                this.setState({ decks: result ? Object.values(result) : [] })
+                this.setState({
+                    decks: result ? Object.values(result).sort((a, b) => { return b.createDate - a.createDate }) : []
+                })
             })
         })
     }
@@ -25,11 +27,7 @@ export default class DeckList extends PureComponent {
     }
 
     _renderItem = ({ item }) => (
-        <DeckPreview
-            title={item.title}
-            numCards={item.questions.length}
-            onPressItem={this._onPressItem}
-        />
+        <DeckPreview deck={item} onPressItem={this._onPressItem} />
     )
 
     render() {

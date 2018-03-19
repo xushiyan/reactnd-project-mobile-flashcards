@@ -54,4 +54,35 @@ export const deckStyles = StyleSheet.create({
     subtitleText: {
         fontSize: 18,
     },
+    addCardButton: {
+        padding: 10,
+        paddingLeft: 50,
+        paddingRight: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: amethyst,
+        marginTop: 40,
+        marginBottom: 10,
+    },
+    addCardButtonText: {
+        color: amethyst
+    },
+    startQuizButton: {
+        backgroundColor: amethyst,
+        padding: 10,
+        paddingLeft: 50,
+        paddingRight: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: amethyst,
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    startQuizButtonText: {
+        color: white
+    },
 })

@@ -20,6 +20,7 @@ const Tabs = TabNavigator({
   Decks: {
     screen: DeckList,
     navigationOptions: {
+      headerTitle: 'Decks',
       tabBarLabel: 'DECKS',
       tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name='cards' size={30} color={tintColor} />
     }
@@ -27,6 +28,7 @@ const Tabs = TabNavigator({
   NewDeck: {
     screen: NewDeckForm,
     navigationOptions: {
+      headerTitle: 'New Deck',
       tabBarLabel: 'NEW DECK',
       tabBarIcon: ({ tintColor }) => <Ionicons name='ios-add-circle' size={30} color={tintColor} />
     }
