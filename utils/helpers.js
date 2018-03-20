@@ -43,6 +43,19 @@ export const saveDeckTitle = (title) => {
     })
 }
 
-export const addCardToDeck = (deckTitle, card) => {
-
+export const addCardToDeck = (title, card) => {
+    if (!title || !card.question || !card.answer) {
+        return { success: false, message: 'Invalid input.' }
+    }
+    const deckStorageKey = `${DECK_STORAGE_KEY_PREFIX}${title}`
+    return AsyncStorage.getItem(deckStorageKey).then(result => {
+        const oldCards = JSON.parse(result).cards
+        AsyncStorage.mergeItem(deckStorageKey,
+            JSON.stringify({ cards: [...oldCards, card] }), () => {
+                AsyncStorage.mergeItem(
+                    DECKS_STORAGE_KEY, JSON.stringify({ [title]: { numCards: oldCards.length + 1 } })
+                )
+            }
+        )
+    }).then(() => { return { success: true, message: null } })
 }
