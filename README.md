@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
 
+## Quickstart
+- `cd` to project root
+- `yarn install`
+- `yarn start`
+- Follow instructions shown in terminal to run the app in simulators.
+  - Tested running on both Android and iOS
+
 ## Table of Contents
 
 * [Updating to New Releases](#updating-to-new-releases)

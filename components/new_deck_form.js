@@ -52,7 +52,7 @@ export default class NewDeckForm extends Component {
                     returnKeyType='done'
                     onChangeText={this.handleTextChange} />
                 <TouchableOpacity style={formStyles.submitButton} onPress={this.handleSubmit}>
-                    <Text style={formStyles.submitButtonText}>Submit</Text>
+                    <Text style={formStyles.submitButtonText}>Create Deck</Text>
                 </TouchableOpacity>
             </KeyboardAvoidingView>
         )

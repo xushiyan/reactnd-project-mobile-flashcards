@@ -59,7 +59,7 @@ export default class NewCardForm extends Component {
                     returnKeyType='done'
                     onChangeText={this.handleAnswerTextChange} />
                 <TouchableOpacity style={formStyles.submitButton} onPress={this.handleSubmit}>
-                    <Text style={formStyles.submitButtonText}>Submit</Text>
+                    <Text style={formStyles.submitButtonText}>Add New Card</Text>
                 </TouchableOpacity>
             </KeyboardAvoidingView>
         )
