@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { getDeck } from '../utils/helpers';
+import { getDeck, clearLocalNotification, setLocalNotification } from '../utils/helpers';
 import { deckStyles } from '../utils/styles';
 
 export default class DeckDetail extends Component {
@@ -34,6 +34,7 @@ export default class DeckDetail extends Component {
     handleStartQuiz() {
         const { navigation } = this.props
         navigation.navigate('StartQuiz', { cards: this.state.cards })
+        clearLocalNotification().then(setLocalNotification)
     }
 
     render() {

@@ -9,6 +9,7 @@ import NewCardForm from './components/new_card_form';
 import QuizCard from './components/quiz_card';
 import QuizResult from './components/quiz_result';
 import { wisteria, white, amethyst } from './utils/colors';
+import { setLocalNotification } from './utils/helpers';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const FlashCardsStatusBar = ({ backgroundColor, ...props }) => {
@@ -23,7 +24,7 @@ const Tabs = TabNavigator({
   Decks: {
     screen: DeckList,
     navigationOptions: {
-      headerTitle: 'Decks',
+      title: 'Decks',
       tabBarLabel: 'DECKS',
       tabBarIcon: ({ tintColor }) => <MaterialCommunityIcons name='cards' size={30} color={tintColor} />
     }
@@ -31,7 +32,7 @@ const Tabs = TabNavigator({
   NewDeck: {
     screen: NewDeckForm,
     navigationOptions: {
-      headerTitle: 'New Deck',
+      title: 'New Deck',
       tabBarLabel: 'NEW DECK',
       tabBarIcon: ({ tintColor }) => <Ionicons name='ios-add-circle' size={30} color={tintColor} />
     }
@@ -76,7 +77,7 @@ const MainNavigator = StackNavigator({
   NewCard: {
     screen: NewCardForm,
     navigationOptions: {
-      headerTitle: 'Add Card',
+      title: 'Add Card',
       headerTintColor: white,
       headerStyle: {
         backgroundColor: amethyst,
@@ -86,7 +87,7 @@ const MainNavigator = StackNavigator({
   StartQuiz: {
     screen: QuizCard,
     navigationOptions: {
-      headerTitle: 'Quiz',
+      title: 'Quiz',
       headerTintColor: white,
       headerStyle: {
         backgroundColor: amethyst,
@@ -96,7 +97,7 @@ const MainNavigator = StackNavigator({
   QuizResult: {
     screen: QuizResult,
     navigationOptions: {
-      headerTitle: 'Quiz Result',
+      title: 'Quiz Result',
       headerTintColor: white,
       headerStyle: {
         backgroundColor: amethyst,
@@ -106,6 +107,9 @@ const MainNavigator = StackNavigator({
 })
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification()
+  }
   render() {
     return (
       <View style={{ flex: 1 }}>
