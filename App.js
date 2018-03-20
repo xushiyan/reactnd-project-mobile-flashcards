@@ -7,6 +7,7 @@ import DeckDetail from './components/deck_detail';
 import NewDeckForm from './components/new_deck_form';
 import NewCardForm from './components/new_card_form';
 import QuizCard from './components/quiz_card';
+import QuizResult from './components/quiz_result';
 import { wisteria, white, amethyst } from './utils/colors';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -92,6 +93,16 @@ const MainNavigator = StackNavigator({
       }
     }
   },
+  QuizResult: {
+    screen: QuizResult,
+    navigationOptions: {
+      headerTitle: 'Quiz Result',
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: amethyst,
+      }
+    }
+  }
 })
 
 export default class App extends React.Component {

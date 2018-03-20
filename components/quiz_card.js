@@ -35,9 +35,9 @@ export default class QuizCard extends Component {
     _checkFinish() {
         const { navigation } = this.props
         const { cards } = navigation.state.params
-        const { currentIndex } = this.state
+        const { currentIndex, correctCount } = this.state
         if (currentIndex === cards.length) {
-            navigation.goBack()
+            navigation.navigate('QuizResult', { score: correctCount / cards.length })
         }
     }
 
@@ -62,7 +62,8 @@ export default class QuizCard extends Component {
         const { cards } = this.props.navigation.state.params
         const { currentIndex, showAnswer } = this.state
         if (currentIndex === cards.length) {
-            return <Text>Showing result...</Text>
+            // exiting to result view
+            return <Text></Text>
         }
 
         const { question, answer } = cards[currentIndex]

@@ -85,6 +85,21 @@ export const deckStyles = StyleSheet.create({
     startQuizButtonText: {
         color: white
     },
+    cancelButton: {
+        padding: 10,
+        paddingLeft: 50,
+        paddingRight: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: amethyst,
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    cancelButtonText: {
+        color: amethyst
+    },
 })
 
 export const quizStyles = StyleSheet.create({
