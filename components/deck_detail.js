@@ -32,7 +32,8 @@ export default class DeckDetail extends Component {
     }
 
     handleStartQuiz() {
-
+        const { navigation } = this.props
+        navigation.navigate('StartQuiz', { cards: this.state.cards })
     }
 
     render() {
@@ -45,9 +46,11 @@ export default class DeckDetail extends Component {
                 <TouchableOpacity style={deckStyles.addCardButton} onPress={this.handleAddCard}>
                     <Text style={deckStyles.addCardButtonText}>Add Card</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={deckStyles.startQuizButton} onPress={this.handleStartQuiz}>
-                    <Text style={deckStyles.startQuizButtonText}>Start Quiz</Text>
-                </TouchableOpacity>
+                {cards.length > 0 &&
+                    <TouchableOpacity style={deckStyles.startQuizButton} onPress={this.handleStartQuiz}>
+                        <Text style={deckStyles.startQuizButtonText}>Start Quiz</Text>
+                    </TouchableOpacity>
+                }
             </View>
         )
     }

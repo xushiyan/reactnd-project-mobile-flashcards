@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { amethyst, white, concrete } from './colors';
+import { amethyst, white, concrete, emerald, alizarin } from './colors';
 
 export const formStyles = StyleSheet.create({
     container: {
@@ -84,5 +84,66 @@ export const deckStyles = StyleSheet.create({
     },
     startQuizButtonText: {
         color: white
+    },
+})
+
+export const quizStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 10,
+        paddingTop: 50,
+        paddingBottom: 50,
+        borderWidth: 0.5,
+        borderColor: amethyst,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    questionText: {
+        fontSize: 36,
+        fontWeight: 'bold',
+    },
+    indicatorText: {
+        fontSize: 14,
+    },
+    correctButton: {
+        backgroundColor: emerald,
+        padding: 10,
+        paddingLeft: 50,
+        paddingRight: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: emerald,
+        marginTop: 40,
+        marginBottom: 10,
+    },
+    correctButtonText: {
+        color: white
+    },
+    incorrectButton: {
+        backgroundColor: alizarin,
+        padding: 10,
+        paddingLeft: 50,
+        paddingRight: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: alizarin,
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    incorrectButtonText: {
+        color: white
+    },
+    showAnswerButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    showAnswerButtonText: {
+        color: amethyst
     },
 })
